@@ -7,6 +7,7 @@ final class ToolRegistry {
 
     private init() {
         allTools = [
+            ConvertHEICToJPEGTool(),
             ConvertToPNGTool(),
             ConvertToJPEGTool(),
             ConvertToHEICTool(),

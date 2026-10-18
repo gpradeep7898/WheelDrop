@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // Use the bundled icon image; fall back to text if missing.
             let iconURL = Bundle.main.resourceURL?.appendingPathComponent("StatusIcon.png")
             if let url = iconURL, let img = NSImage(contentsOf: url) {
-                img.isTemplate = true
+                img.isTemplate = false
                 img.size = NSSize(width: 18, height: 18)
                 btn.image = img
             } else {
