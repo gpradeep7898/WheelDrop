@@ -1,0 +1,42 @@
+# Swift / SPM build artifacts
+.build/
+*.o
+*.d
+*.swp
+*.swiftmodule
+
+# Xcode
+xcuserdata/
+*.xcworkspace/
+*.xcodeproj/
+DerivedData/
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+*.xccheckout
+*.xcscmblueprint
+
+# App bundles (built locally, not committed)
+*.app/
+*.dmg
+*.zip
+*.pkg
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# Environment / secrets
+*.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
+*.sublime-*
