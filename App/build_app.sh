@@ -15,6 +15,13 @@ rm -rf "$BUNDLE"
 mkdir -p "$BUNDLE/Contents/MacOS" "$BUNDLE/Contents/Resources"
 cp "$BIN" "$BUNDLE/Contents/MacOS/$APP"
 cp "$SCRIPT_DIR/Resources/Info.plist" "$BUNDLE/Contents/"
+# Icons
+[[ -f "$SCRIPT_DIR/Resources/AppIcon.icns" ]] && \
+    cp "$SCRIPT_DIR/Resources/AppIcon.icns" "$BUNDLE/Contents/Resources/"
+[[ -f "$SCRIPT_DIR/Resources/StatusIcon.png" ]] && \
+    cp "$SCRIPT_DIR/Resources/StatusIcon.png"    "$BUNDLE/Contents/Resources/"
+[[ -f "$SCRIPT_DIR/Resources/StatusIcon@2x.png" ]] && \
+    cp "$SCRIPT_DIR/Resources/StatusIcon@2x.png" "$BUNDLE/Contents/Resources/"
 
 echo "Signing ad-hoc..."
 codesign --sign - --force --deep "$BUNDLE"

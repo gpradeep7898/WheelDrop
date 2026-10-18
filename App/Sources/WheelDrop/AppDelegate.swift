@@ -14,6 +14,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func setupStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        if let btn = statusItem?.button {
+            // Use the bundled icon image; fall back to text if missing.
+            let iconURL = Bundle.main.resourceURL?.appendingPathComponent("StatusIcon.png")
+            if let url = iconURL, let img = NSImage(contentsOf: url) {
+                img.isTemplate = true
+                img.size = NSSize(width: 18, height: 18)
+                btn.image = img
+            } else {
+                btn.title = "⊘"
+            }
+        }
         setIcon(ready: false)
 
         let menu = NSMenu()
@@ -27,7 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func setIcon(ready: Bool) {
-        statusItem?.button?.title   = ready ? "◉" : "⊘"
+        // Tint the template icon: full opacity when active, dimmed when waiting for permission.
+        if let btn = statusItem?.button, btn.image != nil {
+            btn.alphaValue = ready ? 1.0 : 0.4
+        } else {
+            statusItem?.button?.title = ready ? "◉" : "⊘"
+        }
         statusItem?.button?.toolTip = ready
             ? "WheelDrop — drag files, tap Shift to open wheel"
             : "WheelDrop — needs Accessibility permission"

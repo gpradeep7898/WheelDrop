@@ -28,6 +28,8 @@
     <false/>
     <key>NSSupportsSuddenTermination</key>
     <false/>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
     <key>NSAccessibilityUsageDescription</key>
     <string>WheelDrop needs Accessibility access to detect when you press Shift while dragging files, so it can show the conversion wheel.</string>
 </dict>
